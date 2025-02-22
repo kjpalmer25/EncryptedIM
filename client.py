@@ -91,6 +91,7 @@ def main():
     while True:
         rl, _, _ = select.select(readSet, [], [])
 
+        #read message from server
         if s in rl:
             log.debug(f"waiting for {dataLenSize} bytes")
             try:
@@ -110,6 +111,7 @@ def main():
                 log.warning(f"invalid message received: {err}")
             print(msg)
 
+        #read keyboard input and send message
         if sys.stdin in rl:
             keyboardInput = sys.stdin.readline()
             if len(keyboardInput) == 0:

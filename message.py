@@ -29,6 +29,8 @@ class EncryptedIMMessage:
 
 
     def toJSON(self, confkey, authkey):
+        print(f"Encryption confkey: {confkey}")
+        print(f"Encryption authkey: {authkey}")
 
         encNickBlob = EncryptedBlob(self.nick,confkey,authkey)
         encMsgBlob  = EncryptedBlob(self.plaintext,confkey,authkey)
